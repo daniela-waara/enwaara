@@ -1,0 +1,202 @@
+// About the case
+section.about-wrapper {
+    padding: calculateRem(46px) calculateRem(32px);
+
+    @include desktop {
+        padding: calculateRem(64px) calculateRem(32px);
+    }
+
+    div.about-content {
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        hr {
+            width: 100%;
+            margin: calculateRem(64px) 0;
+        }
+
+        h3 {
+            width: 100%;
+            font-family: $detail_font;
+            @include font-size($label);
+            font-weight: $regular;
+            padding-left: calculateRem(32px);
+            display: flex;
+            position: relative;
+    
+            @include tablet {
+                padding-left: calculateRem(80px);
+            }
+    
+            @include desktop {
+                padding-left: calculateRem(62px);
+            }
+    
+            @include large-desktop {
+                padding-left: calculateRem(80px);
+            }
+            
+            hr {
+                width: calculateRem(16px);
+                margin-right: calculateRem(16px);
+                margin-top: 0;
+                margin-bottom: 0;
+                position: absolute;
+                top: calculateRem(10px);
+                left: 0;
+    
+                @include tablet {
+                    width: calculateRem(64px);
+                } 
+                
+                @include desktop {
+                    width: calculateRem(46px);
+                } 
+    
+                @include large-desktop {
+                    width: calculateRem(64px);
+                } 
+            }
+        }
+    
+        p {
+            flex: 1;
+            width: 100%;
+            max-width: 860px;
+
+            &.right-paragraph {
+                align-self: flex-end;
+            }
+
+            @include desktop {
+                padding: 0 calculateRem(24px);
+            }
+
+            b {
+                @include font-size($label);
+                line-height: calculateRem(32px);
+                font-weight: $medium;
+            }
+
+            i {
+                @include font-size($label);
+                line-height: calculateRem(32px);
+                font-style: italic;
+            }
+    
+            a {
+                display: inline-block;
+                @include font-size($label);
+                line-height: calculateRem(32px);
+                font-weight: $regular;
+                letter-spacing: .5px;
+                color: var(--main-color);
+                text-decoration: none;
+                box-shadow: 0 1px 0 0 transparent;
+                @include transition(box-shadow, .2s);
+    
+                &:hover {
+                    box-shadow: 0 1px 0 0 var(--main-color);
+                }
+            }
+        }
+    }
+}
+
+// Case image
+section.case-image {
+    padding: calculateRem(46px) calculateRem(32px);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+
+    @include desktop {
+        padding: calculateRem(64px) calculateRem(32px);
+
+        &.mosaic {
+            padding-top: 0;
+            margin-top: calculateRem(-400px);
+            padding-bottom: calculateRem(120px);
+    
+            @include desktop {
+                padding-top: calculateRem(240px);
+            }
+        }
+    }
+
+    div.image-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        &.margin-bottom {
+            margin-bottom: calculateRem(32px);
+        }
+
+        &.column-container.mosaic {
+            align-items: flex-start;
+
+            div.column {
+                width: 33.33%;
+    
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include tablet {
+            &.column-container {
+                img {
+                    width: 50%;
+                }
+
+                &.mosaic {
+        
+                    div.column {
+                        width: 33.33%;
+            
+                        &:nth-child(2) {
+                            padding-top: calculateRem(200px);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include desktop {
+            &.four-column {
+                img {
+                    width: 25%;
+                }
+            }
+
+            &.mosaic {
+    
+                div.column {
+        
+                    &:nth-child(1) {
+                        padding-top: calculateRem(800px);
+                    }
+        
+                    &:nth-child(2) {
+                        padding-top: calculateRem(400px);
+                    }
+                }
+            }
+        }
+
+        img {
+            flex: 1;
+            width: 100%;
+            height: auto;
+        }
+    }
+}

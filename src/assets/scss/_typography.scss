@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Mono&display=swap');
+
+/*-- FONT SIZE --*/
+$headline:          56px;
+$small_headline:    32px;
+$case_headline:     24px;
+$sub_headline:      20px;
+$label:             18px;
+$body:              16px;
+$small_body:        14px;
+$tiny_body:         12px;
+
+/*-- FONT WEIGHT --*/
+$light:     300;
+$regular:   400;
+$medium:    500;
+$bold:      600;
+$black:     700;
+
+/*-- FONTS --*/
+$global-font:  'Inter', inter, -apple-system, BlinkMacSystemFont, sans-serif;
+$detail-font:  'PT Mono', pt-mono, monospace;

@@ -1,0 +1,29 @@
+/*-- COLORS --*/
+$colors: (
+  black: #2d3436,
+  white: #f1f2f6,
+  orange: #fd9644,
+  green: #26de81,
+  blue: #45aaf2,
+  purple: #a55eea,
+  yellow: #fed330,
+  red: #fc5c65,
+);
+
+:root {
+  --main-color: #fd9644;
+}
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: #{$color};
+  }
+
+  .text-#{$name} {
+    color: #{$color};
+  }
+}
+
+@function color($color-name) {
+  @return map-get($map: $colors, $key: $color-name);
+}

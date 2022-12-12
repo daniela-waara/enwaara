@@ -1,0 +1,94 @@
+@use 'sass:math';
+
+// Rem calculator
+// ex. padding-rigth: calculateRem(24px);
+@function calculateRem($size) {
+  $remSize: math.div($size, 16px);
+  @return $remSize * 1rem;
+}
+
+// Font size rem calculator and fallback
+// ex. @include font-size(24px);
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// Media queries
+// ex. @include large-desktop{}
+@mixin large-desktop {
+  @media only screen and (min-width: 1140px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 720px) {
+    @content;
+  }
+}
+
+@mixin large-phone {
+  @media only screen and (min-width: 375px) {
+    @content;
+  }
+}
+
+// Aspect Ratio
+// ex. @include aspect-ratio(16, 9);
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: math.div($height, $width) * 100%;
+  }
+}
+
+// Transition
+// ex. @include transition(color, 0.2s);
+@mixin transition($selector, $time) {
+  -webkit-transition: $selector $time ease-in-out;
+  -moz-transition: $selector $time ease-in-out;
+  -ms-transition: $selector $time ease-in-out;
+  -o-transition: $selector $time ease-in-out;
+  transition: $selector $time ease-in-out;
+}
+
+// Animation
+// ex. @include keyframes(name) { 0%{margin-top: 0;} 100%{margin-top: 2rem;}  }
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// ex. @include animation(name 2s infinite ease-in-out);
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}

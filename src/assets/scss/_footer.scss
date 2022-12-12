@@ -1,0 +1,45 @@
+footer {
+    width: 100%;
+
+    div.footer-wrapper {
+        width: 100%;
+        max-width: calculateRem(1264px);
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            width: 25%;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: center;
+            color: color(white);
+            @include transition(all, .2s);
+            @include aspect-ratio(1,1);
+
+            @include tablet {
+                width: calculateRem(100px);
+            }
+
+            span {
+                width: 100%;
+                text-align: center;
+                @include font-size($label);
+                position: absolute;
+                top: auto;
+                left: auto;
+                bottom: auto;
+                right: auto;
+            }
+
+            &:hover {
+                color: var(--main-color);
+                box-shadow: inset 0px -2px 0px 0px var(--main-color);
+            }
+        }
+    }
+}

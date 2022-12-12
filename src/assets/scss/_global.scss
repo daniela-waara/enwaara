@@ -1,0 +1,58 @@
+@import "./variables";
+@import "./mixins";
+@import "./typography";
+@import "./navbar";
+@import "./footer";
+@import "./case";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1rem;
+	word-wrap: normal;
+}
+
+body {
+	background-color: color(black);
+	font-family: $global-font;
+	font-weight: $light;
+	color: color(white);
+}
+
+p {
+	width: 100%;
+	@include font-size($body);
+	line-height: calculateRem(28px);
+	font-weight: $light;
+	letter-spacing: .5px;
+
+	@include desktop {
+		@include font-size($label);
+		line-height: calculateRem(32px);
+	}
+
+	a {
+		display: inline-block;
+		font-size: inherit;
+		line-height: inherit;
+		font-weight: inherit;
+		letter-spacing: inherit;
+		color: inherit;
+		text-decoration: none;
+		@include transition(all, .2s);
+
+		&:hover, &:focus {
+			color: var(--main-color);
+			box-shadow: 0 1px 0 0 var(--main-color);
+		}
+	}
+}
+
+section {
+	width: 100%;
+	max-width: calculateRem(1400px);
+	margin: 0 auto;
+}

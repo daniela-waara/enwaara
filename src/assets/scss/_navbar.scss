@@ -1,0 +1,104 @@
+header {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    @include transition(top, 0.4s);
+
+    &.hiddenNavbar {
+        top: calculateRem(-160px);
+    }
+
+    &.scrollNavbar {
+        nav.navbar {
+            background-color: rgba(color(black), .8);
+            -webkit-backdrop-filter: blur(20px);
+            -moz-backdrop-filter: blur(20px);
+            -o-backdrop-filter: blur(20px);
+            -ms-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            padding: calculateRem(12px) calculateRem(32px) calculateRem(12px) calculateRem(32px);
+
+            @include desktop {
+                padding: calculateRem(12px) calculateRem(36px) calculateRem(12px) calculateRem(36px);
+            }
+        
+            @include large-desktop {
+                padding: calculateRem(12px) calculateRem(56px) calculateRem(12px) calculateRem(56px);
+            }
+        }
+    }
+}
+
+nav.navbar {
+    width: 100%;
+    padding: calculateRem(28px) calculateRem(32px) calculateRem(32px) calculateRem(32px);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    @include transition(all, 0.2s);
+
+    @include desktop {
+        padding: calculateRem(32px) calculateRem(36px) calculateRem(36px) calculateRem(36px);
+    }
+
+    @include large-desktop {
+        padding: calculateRem(52px) calculateRem(56px) calculateRem(56px) calculateRem(56px);
+    }
+
+    a {
+        display: inline-block;
+        padding: calculateRem(4px) 0;
+        text-decoration: none;
+        color: color(white);
+        @include font-size($small_body);
+        text-transform: uppercase;
+        font-weight: $regular;
+        letter-spacing: 2px;
+        box-shadow: 0px 1px 0px 0px transparent;
+        @include transition(all, .2s);
+
+        &.contact-link {
+            padding: 0;
+            height: calculateRem(32px);
+            line-height: calculateRem(32px);
+        }
+
+        span {
+            @include font-size($small_body);
+            margin-left: calculateRem(12px);
+        }
+
+        svg {
+            height: calculateRem(24px);
+            width: auto;
+
+            @include tablet {
+                height: calculateRem(28px);
+            }
+
+            @include desktop {
+                height: calculateRem(32px);
+            }
+
+            path {
+                fill: color(white);
+                @include transition(fill, .2s);
+            }
+        }
+
+        &:hover {
+            color: var(--main-color);
+            box-shadow: 0px 1px 0px 0px var(--main-color);
+
+            svg {
+                path {
+                    fill: var(--main-color);
+                }
+            }
+        }
+    }
+}
