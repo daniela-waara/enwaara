@@ -7,7 +7,6 @@ import Breakfastapp from "../views/CaseBreakfastapp.vue";
 import HelloGirl from "../views/CaseHellogirl.vue";
 import Creone from "../views/CaseCreone.vue";
 import Avantime from "../views/CaseAvantime.vue";
-//import RaknaMedMig from "../views/CaseRaknaMedMig.vue";
 
 Vue.use(VueRouter);
 
@@ -53,13 +52,7 @@ const routes = [
         name: "Avantime",
         component: Avantime,
         meta: { title: 'Avantime | Daniela Andersson Waara' }
-    },
-    // {
-    //     path: "/rakna-med-mig",
-    //     name: "Räkna med mig!",
-    //     component: RaknaMedMig,
-    //     meta: { title: 'Räkna med mig! | Daniela Andersson Waara' }
-    // }
+    }
 ];
 
 const router = new VueRouter({
